@@ -1,7 +1,7 @@
 # %%
 
 import math
-import mathplotlib
+#import mathplotlib
 
 #import sympy
 
@@ -30,7 +30,7 @@ def SENOR_PIG():
     print('<PI>')
     serie = float()
     odd = 1
-    for k in range(0, 400000):
+    for k in range(0, 300):
         serie += (((-1)**(k+1)))/((2*k)+1)
 
     pi = float(serie*4)
