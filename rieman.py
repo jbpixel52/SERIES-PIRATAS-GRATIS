@@ -1,10 +1,6 @@
 # %%
 
 import math
-#import mathplotlib
-
-#import sympy
-
 
 
 def EULER():
