@@ -2,6 +2,8 @@
 
 import math
 
+import matplotlib
+from sympy import *
 
 def EULER():
     print('<EULER>')
@@ -25,7 +27,6 @@ def LOGARTIMO():
 def SENOR_PIG():
     print('<PI>')
     serie = float()
-    odd = 1
     for k in range(0, 300):
         serie += (((-1)**(k+1)))/((2*k)+1)
 
@@ -34,23 +35,33 @@ def SENOR_PIG():
     print('Con arco tangente:', math.atan(1)*4)
     print("Absoluto con <math.pi> :", abs(math.pi))
 
+
 def EULER_SQUARE():
     print('<Euler^2>')
     n = 100
-    suma =0
-    for i in range(1,n+1):
+    suma = 0
+    x = Symbol('x')
+    f = 2*x**2+3
+    f = lambdify(x,f)
+    
+    print('f(x)',f(2) )
+    for i in range(1, n+1):
         suma += ((-1)**(i+1))/(i)
 
     print(suma)
 
+
 def MAC_SERIES():
-    n=100
-    suma=0
-    for i in range(1,n):
+    n = 100
+    suma = 0
+    for i in range(1, n):
         pass
+
 
 SENOR_PIG()
 print('\n---------')
 EULER()
 print('\n---------')
 EULER_SQUARE()
+
+# %%
