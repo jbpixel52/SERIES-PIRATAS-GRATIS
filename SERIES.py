@@ -126,7 +126,7 @@ def MAC_SERIES():
             break
     
 
-    print('Real:', (math.exp(Xinput)*math.sin(math. (Xinput))))
+    print('Real:', (math.exp(Xinput)*math.sin(math.degrees(Xinput))))
     ecuacionF = lambdify(x,suma)
     print('e^x sin(x):',ecuacionF(Xinput )) #AQUI VA EL VALOR DE X
 
