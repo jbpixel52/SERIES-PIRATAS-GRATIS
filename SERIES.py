@@ -99,36 +99,24 @@ def EULER_SQUARE():
     print("Numero de iteraciones:",count_dec)
 
 
-def MAC_SERIES():
-    print('\nMAC SERIES')
-
-    suma = 0
-    Xinput = (math.pi/4)
-    count_dec=0
-    x = Symbol('x')
-    i = Symbol('i')
-    f = (x**i)/(factorial(i)) 
-    operacion = (lambdify(i,f))
-    print('f(x)', operacion(1))
-    e_error=0
-    temp_f = f;
-    for k in range(1, 100):
-        #suma += operacion(Xinput)
-        #print(suma)
-        temp_f += (x ** (i * k)) / (factorial(k))
-        temp_lamb = lambdify([i,x], temp_f)
-        
-        e_error = abs(temp_lamb(k, Xinput) - (math.exp(Xinput) * (math.sin(math.radians(Xinput)))))
-        print('e_eeror:',e_error)
-        suma += temp_lamb(k,Xinput)
-        count_dec += 1
-        if e_error <= 0.01:
-            break
-    
-
-    print('Real:', (math.exp(Xinput)*math.sin(math.degrees(Xinput))))
-    ecuacionF = lambdify(x,suma)
-    print('e^x sin(x):',ecuacionF(Xinput )) #AQUI VA EL VALOR DE X
+def esin():
+    n = 10
+    x = math.pi / 4
+    prox_sen = 0
+    prox_e = 0
+    real_seno = math.sin(math.radians(45))
+    real_ex = math.exp(x)
+    real_producto = real_seno * real_ex
+    error_producto = 1
+    for i in range(n):
+        prox_sen += (((-1) ** i) * (x ** (2 * i + 1))) / math.factorial(2 * i + 1)
+        prox_e += (x ** i) / math.factorial(i)
+        aprox_product = prox_sen * prox_e
+        error_producto = abs(real_producto - aprox_product)
+    print('<TAYLOR: e^x * sin(x)>')
+    print('iteraciones:', n)
+    print('Aproximacion:', aprox_product)
+    print('Error de 10^-3:',error_producto)
 
 SENOR_PIG()
 print('\n---------')
@@ -138,5 +126,5 @@ EULER_SQUARE()
 print('\n---------')
 LOGARTIMO()
 print('\n---------')
-MAC_SERIES()
+esin()
 # %%
