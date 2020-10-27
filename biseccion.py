@@ -8,6 +8,7 @@ def bisection(f,a,b,N):
     if f(a)*f(b) >= 0:
         print("Bisection falla.")
         return None
+    
     a_n = a
     b_n = b
     for n in range(1,N+1):
